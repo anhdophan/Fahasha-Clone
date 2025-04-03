@@ -1,0 +1,58 @@
+﻿@model IEnumerable<DoAn.Models.OrderPro>
+
+@{
+    ViewBag.Title = "OrderCus";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>OrderCus</h2>
+@using (Html.BeginForm("OrderCus", "LoginUser", FormMethod.Get))
+{
+
+
+    <table class="table">
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.IDCus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NameCus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneCus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AddressDeliverry)
+            </th>
+
+            <th>@Html.DisplayNameFor(model => model.TinhTrang)</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IDCus)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NameCus)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneCus)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AddressDeliverry)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TinhTrang)
+                </td>
+                <td>
+                    @Html.ActionLink("Detail", "DetailPro", new { id = item.ID })
+                </td>
+            </tr>
+        }
+
+    </table>
+}
+

@@ -1,0 +1,23 @@
+﻿@model IEnumerable<DoAn.Models.Product>
+
+
+
+
+<div class="fls-main">
+    <div class="item-sale">
+        @foreach (var pro in Model)
+        {
+
+            <div class="fls-item">
+
+                <img src="@Url.Content(pro.ImagePro)" />
+                <div class="fls-item-infor" >@Html.DisplayFor(model => pro.NamePro)</div>
+                <div class="fls-price-special">@Html.DisplayFor(model => pro.Price)</div>
+                <a style="text-decoration:none;" href="/Product/Details/@pro.ProductID" class="btn btn-default">Chi Tiết</a>
+
+            </div>
+        }
+    </div>
+</div>
+
+

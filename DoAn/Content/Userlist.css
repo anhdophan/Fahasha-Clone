@@ -1,0 +1,80 @@
+/* General page layout */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container for the main content */
+.container-fluid {
+    padding: 20px;
+}
+
+/* Title styling */
+h2 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Styling for the table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: white;
+}
+
+/* Table header styling */
+th {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    text-align: left;
+    font-weight: bold;
+}
+
+/* Table cell styling */
+td {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+/* Styling for alternating rows */
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Hover effect for rows */
+tr:hover {
+    background-color: #e1e1e1;
+}
+
+/* Styling for table borders */
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+/* Button or Form styling */
+input[type="submit"], button {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+    /* Hover effect for buttons */
+    input[type="submit"]:hover, button:hover {
+        background-color: #0056b3;
+    }
+
+/* Add spacing and alignment for the form */
+form {
+    margin-bottom: 20px;
+}

@@ -1,0 +1,104 @@
+﻿/* ProductList.css */
+
+/* Reset cơ bản */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Phần body và font */
+body {
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+}
+
+/* Tiêu đề trang */
+h2 {
+    text-align: center;
+    margin: 20px 0;
+    color: #444;
+}
+
+/* Container chính */
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 15px;
+}
+
+/* Nút tạo sản phẩm */
+#addPro {
+    margin-bottom: 20px;
+}
+
+/* Card sản phẩm */
+.card-pro {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    padding: 15px;
+    margin-bottom: 20px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+    .card-pro:hover {
+        transform: scale(1.03);
+    }
+
+    /* Hình ảnh sản phẩm */
+    .card-pro img {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+    }
+
+    /* Thông tin sản phẩm */
+    .card-pro p {
+        font-size: 16px;
+        margin: 10px 0;
+        color: #555;
+    }
+
+/* Nút chung */
+.btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background 0.2s ease;
+}
+
+/* Nút mặc định */
+.btn-default {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+}
+
+    .btn-default:hover {
+        background-color: #0056b3;
+    }
+
+/* Phân trang */
+.MenuPage {
+    text-align: center;
+    margin-top: 20px;
+}
+
+    .MenuPage a {
+        margin: 0 5px;
+        text-decoration: none;
+        color: #007bff;
+    }
+
+        .MenuPage a:hover {
+            color: #0056b3;
+        }

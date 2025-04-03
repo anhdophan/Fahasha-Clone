@@ -1,0 +1,778 @@
+﻿* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    display: block;
+    margin: 0%;
+    padding: 0%;
+    background-color:whitesmoke !important;
+}
+
+div {
+    display: block;
+}
+
+a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    cursor: pointer;
+    overflow: clip;
+    max-width: 100%;
+    height: auto;
+    border: 0;
+}
+
+li {
+    list-style-type: none;
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+
+ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+
+form {
+    display: block;
+    margin-top: 0em;
+}
+
+input {
+    text-rendering: auto;
+    letter-spacing: normal;
+    word-spacing: normal;
+    line-height: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    appearance: auto;
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+    background-color: field;
+    writing-mode: horizontal-tb !important;
+    margin: 0em;
+    padding: 1px 0px;
+    border-width: 2px;
+    border-style: inset;
+    border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+    border-image: initial;
+    padding-block: 1px;
+    padding-inline: 2px;
+}
+
+button {
+    text-rendering: auto;
+    color: buttontext;
+    letter-spacing: normal;
+    word-spacing: normal;
+    line-height: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: center;
+    align-items: flex-start;
+    cursor: default;
+    box-sizing: border-box;
+    background-color: buttonface;
+    writing-mode: horizontal-tb !important;
+    margin: 0em;
+    padding-block: 1px;
+    padding-inline: 6px;
+    border-width: 2px;
+    border-style: outset;
+    border-color: buttonborder;
+    border-image: initial;
+}
+
+form.search-box input[type=text] {
+    outline: none;
+    padding: 5px;
+    margin: 5px;
+    margin-left: 15px;
+    height: 30px;
+    float: left;
+    width: 72%;
+    background: #fff;
+    border: none;
+}
+
+input[type="text" i] {
+    padding-block: 1px;
+    padding-inline: 2px;
+}
+
+input:not([type="file" i], [type="image" i], [type="checkbox" i], [type="radio" i]) {
+}
+
+form.search-box button {
+    border-radius: 10px;
+    padding: 5px;
+    margin: 5px;
+    height: 30px;
+    float: left;
+    width: 20%;
+    background: rgb(188, 21, 21);
+    color: white;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+}
+
+li {
+    border-color: gray;
+    color: black;
+}
+
+h3 {
+    line-height: 39px;
+}
+
+.list > li {
+    text-align: left;
+    color: white;
+    padding: 10px 10px;
+}
+
+.container-1 {
+    font-family: sans-serif, Helvetica, Arial;
+    background-color: rgb(240, 240, 240);
+}
+
+.add {
+    text-align: center;
+    width: 100%;
+    background-color: #E59F21;
+}
+
+.header-background {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.header {
+    display: flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    flex-direction: row;
+    align-items: center;
+    -webkit-align-items: center;
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+    background-color: white;
+    height: 68px;
+}
+
+    .header > div {
+        color: rgb(241, 39, 39);
+        text-align: center;
+        margin: auto;
+        flex: 1;
+    }
+
+        .header > div > a {
+            font-size: 20px;
+            color: rgb(241, 39, 39);
+            font-family: Helvetica, Arial, sans-serif;
+        }
+
+.logo {
+    flex: 2 !important;
+}
+
+    .logo > a {
+        display: block;
+    }
+
+.logo-box {
+    width: 220px;
+    position: relative;
+    left: 90px;
+}
+
+.logo-home {
+    background: no-repeat center center;
+    background-size: contain;
+}
+
+.menu-box {
+    width: 99px;
+    height: 100%;
+    position: relative;
+    right: 200px;
+}
+
+.menu-box {
+    display: flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    align-items: center;
+    -webkit-align-items: center;
+    -webkit-justify-content: flex-end;
+    justify-content: flex-end;
+    text-align: right;
+}
+
+.search-box-all {
+    width: calc(100% - 619px);
+    padding: 5px 8px 0 8px;
+}
+
+.search-box-all {
+    display: flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    align-items: center;
+    -webkit-align-items: center;
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+    text-align: left;
+    position: relative;
+    right: 200px;
+}
+
+.icon-r-box {
+    padding-left: 24px;
+    width: 320px;
+    display: flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    align-items: center;
+    -webkit-align-items: center;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    position: relative;
+    right: 200px;
+}
+
+.menu {
+    color: rgb(241, 39, 39);
+    cursor: pointer;
+    padding: 10px 10px;
+}
+
+.menu {
+    display: flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    align-items: center;
+    -webkit-align-items: center;
+    -webkit-justify-content: flex-end;
+    justify-content: flex-end;
+    text-align: right;
+}
+
+.icon-menu {
+    background: no-repeat center center;
+    background-size: contain;
+    width: 36px;
+    height: 36px
+}
+
+.icon-seemore {
+    background: url(https://cdn0.fahasa.com/skin/frontend/ma_vanese/fahasa/images/icon_seemore_gray.svg) no-repeat center center;
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    -o-background-size: contain;
+    background-size: contain;
+    width: 16px;
+    height: 16px;
+}
+
+.list {
+    border-radius: 5px;
+    margin-top: 10px;
+    right: 760px;
+    display: none;
+    position: absolute;
+    width: 130px;
+    background-color: #b19d9d;
+    padding: 2px;
+}
+
+.search {
+    height: 44px;
+    width: 500px;
+    border-radius: 10px;
+    background-color: #fff;
+    border: 2px solid rgb(171, 171, 171);
+    flex: 4 !important;
+}
+
+.icon-search {
+    background: url(https://cdn0.fahasa.com/skin/frontend/ma_vanese/fahasa/images/ico_search_white.svg) no-repeat center center;
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    -o-background-size: contain;
+    background-size: contain;
+    height: 20px;
+    width: 20px;
+    fill: #fff;
+}
+
+.icon-r {
+    display: flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    align-items: center;
+    -webkit-align-items: center;
+    -webkit-justify-content: flex-end;
+    justify-content: flex-end;
+    text-align: right;
+}
+
+.icon-r {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+
+.noti-icon {
+    margin-bottom: 3px;
+    background: url(https://cdn0.fahasa.com/skin/frontend/ma_vanese/fahasa/images/ico_noti_gray.svg) no-repeat center center;
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    -o-background-size: contain;
+    background-size: contain;
+    height: 24px;
+    width: 24px;
+    position: relative;
+}
+
+.name-icon {
+    display: flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    -webkit-justify-content: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.menu-label {
+    line-height: 18px;
+    color: #7A7E7F;
+    font-size: 12px;
+}
+
+.cart-icon {
+    margin-bottom: 3px;
+    background: url(https://cdn0.fahasa.com/skin/frontend/ma_vanese/fahasa/images/ico_cart_gray.svg) no-repeat center center;
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    -o-background-size: contain;
+    background-size: contain;
+    height: 24px;
+    width: 24px;
+    position: relative;
+}
+
+.acc-icon {
+    margin-bottom: 3px;
+    background: url(https://cdn0.fahasa.com/skin/frontend/ma_vanese/fahasa/images/ico_account_gray.svg) no-repeat center center;
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    -o-background-size: contain;
+    background-size: contain;
+    height: 24px;
+    width: 24px;
+    position: relative;
+}
+
+.lang-icon {
+    background: url(https://cdn0.fahasa.com/skin/frontend/ma_vanese/fahasa/images/default.svg)no-repeat center center;
+    background-size: contain;
+    height: 24px;
+    width: 37px;
+}
+
+.lang-box {
+    padding: 8px;
+    cursor: pointer;
+    user-select: none;
+    height: 40px;
+    border: 1px solid #CDCFD0;
+    border-radius: 8px;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+}
+
+    .lang-box > span {
+        display: flex;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        flex-direction: row;
+        align-items: center;
+        -webkit-align-items: center;
+        -webkit-justify-content: flex-start;
+        justify-content: flex-start;
+        padding-left: 4px;
+    }
+
+.slider {
+    margin-left: 35px;
+}
+
+.top-slider {
+    display: flex;
+    height: 320px;
+    width: 1200px;
+    margin: auto;
+    position: relative;
+    right: 20px;
+}
+
+    .top-slider > div {
+        margin: 10px;
+    }
+
+.left-slider > img {
+    border: 0px solid #fff;
+    height: 292px;
+    width: 882px;
+}
+
+.right-slider {
+    display: flex;
+    flex-direction: column;
+}
+
+.right-top > img {
+    height: 146px;
+    width: 450px;
+}
+
+.right-bot > img {
+    height: 146px;
+    width: 450px;
+}
+
+.bot-slider {
+    display: flex;
+    margin: auto;
+    width: 1200px;
+    position: relative;
+    right: 20px;
+}
+
+.item-slider > img {
+    margin: 5px;
+    width: 292px;
+}
+
+.icon-menu-under {
+    display: flex;
+    margin: 15px 0px 0px 0px;
+    background-color: #fff;
+    text-align: center;
+    padding: 15px 4px !important;
+    justify-content:center;
+}
+
+.main {
+    margin-left: 35px;
+    height: auto;
+}
+
+.row {
+    margin-left: 150px;
+    margin-right: 150px;
+}
+
+.icon-1 {
+    width: 100px;
+    margin: 10px;
+}
+
+.icon-menu-row > a > img {
+    width: 50px;
+}
+
+.footer {
+
+    margin-left: -40px;
+}
+
+.customer {
+    margin: auto;
+    width: 1175px;
+    background-color: #fff;
+    display: flex;
+}
+
+    .customer > img {
+        margin: auto;
+        height: 120px;
+        width: 120px;
+    }
+
+.footer-button {
+    border-radius: 20px 20px 0px 0px;
+    background-color: rgb(155, 163, 167);
+    width: 1175px;
+    margin: auto;
+    margin-top: 30px;
+}
+
+.text-footer-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px 0px 16px;
+    margin: 0px !important;
+}
+
+    .text-footer-button > image {
+        width: 50px;
+        height: 50px;
+    }
+
+.dk-text {
+    margin: 0px 12px;
+}
+
+.footer-button > div {
+    margin: 20px;
+}
+
+.input-footer {
+    height: 54px;
+    width: 500px;
+    border-radius: 10px;
+    background-color: #fff;
+    border: 2px solid rgb(188, 183, 183);
+    border-right: 1px solid #cecece;
+}
+
+.do-flex {
+    display: flex !important;
+}
+
+.text-white {
+    color: white !important;
+}
+
+form.input-f input[type=text] {
+    outline: none;
+    padding: 5px;
+    margin: 5px;
+    margin-left: 15px;
+    height: 40px;
+    float: left;
+    width: 72%;
+    background: #fff;
+    border: none;
+}
+
+form.input-f button {
+    border-radius: 10px;
+    padding: 5px;
+    margin: 5px;
+    height: 40px;
+    float: left;
+    width: 20%;
+    background: #ff7300;
+    color: white;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+}
+
+.footer {
+    margin-left: -10px;
+}
+
+.main-footer {
+    width: 1175px;
+    margin: auto;
+    background-color: white;
+}
+
+.infor-footer {
+    display: flex;
+    height: 450px;
+}
+
+.write {
+    width: 33.3%;
+    margin: 10px;
+    position: relative;
+}
+
+    .write::after {
+        position: absolute;
+        right: 0px;
+        top: 10px;
+        content: "";
+        display: block;
+        width: 1px !important;
+        height: 333px;
+        background-color: #000 !important;
+    }
+
+.write-img {
+    margin-bottom: 8px;
+    padding: 10px 15px;
+}
+
+    .write-img > p {
+        font-size: 13px;
+    }
+
+    .write-img > img {
+        max-width: 150%;
+    }
+
+.footer-left {
+    width: 66.6%;
+}
+
+.footer-l-row {
+    margin-right: -15px;
+    margin-left: -15px;
+    display: flex;
+}
+
+.footer-row {
+    width: 33.3%;
+}
+
+    .footer-row > ul > li {
+        cursor: pointer;
+        padding-top: 20px;
+        font-size: 12px;
+    }
+
+.small-title {
+    margin: 5px -5px;
+}
+
+    .small-title::before {
+        display: table;
+        content: " ";
+        box-sizing: border-box;
+    }
+
+.small-title-de {
+    width: 33.3%;
+    float: left;
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 30px;
+    font-size: 13px
+}
+
+.hidden-xs {
+    height: 80px;
+    display: flex !important;
+    width: 700px;
+    margin-left: 10px;
+}
+
+.footer-img-container {
+    margin: auto;
+}
+
+.decrip {
+    margin-top: 15px;
+    margin-right: -15px;
+    margin-left: -50px;
+}
+
+    .decrip::before {
+        display: table;
+        content: " ";
+    }
+
+.decrip-text {
+    text-align: center;
+    width: 100%;
+}
+
+.icon-menu {
+    position: relative;
+}
+
+
+/*Dropdown*/
+.sub-menu {
+    position: absolute;
+    background-color: black;
+    list-style: none;
+    width: 1175px;
+    height: 800px;
+    left: -206px;
+    padding: 15px 20px;
+    text-align: left;
+    z-index: 999;
+    text-decoration: none;
+    display: none;
+}
+.search-results{
+
+}
+
+.icon-menu > ul > li {
+    padding: 8px 0px;
+}
+
+    .icon-menu > ul > li > a {
+        text-decoration: none;
+        font-size: 30px;
+        color: black;
+    }
+
+.sub-menu-1 {
+    position: absolute;
+    background-color: white;
+    list-style: none;
+    width: 760px;
+    height: 800px;
+    left: 400px;
+    bottom: -20px;
+    padding: 15px 20px;
+    z-index: 999;
+    text-decoration: none;
+    flex-wrap: wrap;
+}
+
+.sub-menu-2 > li > a {
+    text-decoration: none;
+}
+
+.sub-menu-box {
+    width: 25%;
+    height: auto;
+    font-size: 16px;
+}
+
+.dropdown-content {
+    display: none;
+}

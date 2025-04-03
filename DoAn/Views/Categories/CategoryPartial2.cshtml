@@ -1,0 +1,31 @@
+﻿@using DoAn.Models
+@model List<Category>
+
+<link href="~/Content/ProductCategory.css" rel="stylesheet" />
+<style>
+    a {
+        color: #a94442;
+        text-decoration: none;
+
+    }
+
+        a:hover {
+            text-decoration: none;
+        }
+    .text-menu-toolbar > li > a {
+        text-decoration: none;
+    }
+</style>
+<ul class="text-menu-toolbar">
+
+    @{
+        foreach (var item in Model)
+        {
+            <li class="div-cate">
+                @Html.ActionLink(item.NameCate, "Pro_Cate", "Product", new { category = item.IDCate.Trim() }, "")
+            </li>
+            <hr />
+        }
+    }
+</ul>
+

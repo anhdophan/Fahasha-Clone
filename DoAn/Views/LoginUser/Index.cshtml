@@ -1,0 +1,43 @@
+﻿@model DoAn.Models.AdminUser
+
+@{
+    ViewBag.Title = "Formlogin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .field-validation-error {
+        color: red;
+    }
+</style>
+<h2>Admin Login</h2>
+@using (Html.BeginForm("LoginAcount", "LoginUser"))
+{
+    @Html.AntiForgeryToken()
+<table>
+    <tr>
+        <td>@Html.LabelFor(model => model.ID)</td>
+        <td>@Html.TextBoxFor(model => model.ID, new { style = "field-validation-error" })</td>
+        <td>@Html.ValidationMessageFor(model => model.ID)</td>
+    </tr>
+
+    <tr>
+        <td>@Html.LabelFor(model => model.PasswordUser)</td>
+        <td>@Html.TextBoxFor(model => model.PasswordUser)</td>
+        <td>@Html.ValidationMessageFor(model => model.PasswordUser)</td>
+        @if (ViewBag.ErrorInFo == null)
+        {
+            <p>@ViewBag.ErrorInfo</p>
+        }
+    </tr>
+
+    <tr>
+        <td>
+            <input type="submit" name="Register" class="btn btn-success" />
+            <a href="@Url.Action("RegisterUser","LoginUser")" class="btn btn-success">Register</a>
+        </td>
+    </tr>
+  
+</table>
+}
+

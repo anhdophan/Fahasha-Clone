@@ -1,0 +1,122 @@
+﻿@*@model IEnumerable< DemoDB.Models.Product>*@
+@using DoAn.Models
+@using PagedList.Mvc
+@model PagedList.PagedList<Product>
+
+@{
+    ViewBag.Title = "Pro_Cate";
+    Layout = "~/Views/Shared/master2.cshtml";
+}
+<link href="~/Content/ProductCategory.css" rel="stylesheet" />
+<div class="main-product">
+    <div class="menu-toolbar">
+        <div class="text-menu-toolbar">
+            <ul>
+                <a href="/Product/Pro_Cate">Nhóm Sản Phẩm</a>
+                @{ Html.RenderAction("CategoryPartial2", "Categories");}
+
+            </ul>
+            <ul>
+                <a href="/Product/Pro_Cate">Nhà Xuất Bản</a>
+                @{ Html.RenderAction("PublisherPartial", "Publisher");}
+
+            </ul>
+            <ul>
+                <a href="/Product/Pro_Cate">Nhà Phân Phối</a>
+                @{ Html.RenderAction("SupplierPartial", "Supplier");}
+
+            </ul>
+            <ul>
+                <a>Giá</a>
+
+                <ul>
+                    <li>
+                        <input type="checkbox" name="minPrice" value="0" />
+                        0đ - 150,000đ
+                    </li>
+                    <li>
+                        <input type="checkbox" name="minPrice" value="150000" />
+                        150,000đ - 300,000đ
+                    </li>
+                    <li>
+                        <input type="checkbox" name="minPrice" value="300000" />
+                        300,000đ - 500,000đ
+                    </li>
+                    <li>
+                        <input type="checkbox" name="minPrice" value="500000" />
+                        500,000đ - 700,000đ
+                    </li>
+                    <li>
+                        <input type="checkbox" name="minPrice" value="700000" />
+                        700,000đ - Trở Lên
+                    </li>
+                </ul>
+                <button id="filterButton" type="button">Lọc</button>
+            </ul>
+
+        </div>
+    </div>
+    <div class="main-item-product">
+       
+        <div class="item-product">
+            @foreach (var pro in Model)
+            {
+
+                <div class="items">
+                    <a href="/Product/Details/@pro.ProductID" style="text-decoration: none;">
+                        <div class="pic-item"><img src="@Url.Content(pro.ImagePro)" height="150" width="150" /></div>
+                        <div class="item-name">
+                            <p>@Html.DisplayFor(model => pro.NamePro)</p>
+                        </div>
+                        <div class="item-sale">
+                            <p>@Html.DisplayFor(model => pro.Price)</p>
+                        </div>
+                    </a>
+                </div>
+
+            }
+        </div>
+        Trang @(Model.PageCount<Model.PageNumber?0:Model.PageNumber)/@Model.PageCount
+        <div class="MenuPage">
+            @Html.PagedListPager(Model, page => Url.Action("Pro_Cate", new { page = page }))
+        </div>
+    </div>
+ 
+</div>
+
+
+<script>
+
+    // Xử lý sự kiện click của button "Lọc"
+    document.getElementById("filterButton").addEventListener("click", function () {
+        //lọc theo giá
+
+
+        // Lấy danh sách checkbox theo tên name="minPrice"
+        var checkboxes = document.getElementsByName("minPrice");
+        var selectedPrices = [];
+
+        // Lọc các checkbox đã được chọn
+        checkboxes.forEach(function (checkbox) {
+            if (checkbox.checked) {
+                selectedPrices.push(checkbox.value);
+            }
+        });
+
+        // Lấy danh sách các sản phẩm
+        var items = document.getElementsByClassName("items");
+
+        // Ẩn hoặc hiển thị sản phẩm dựa trên mức giá đã chọn
+        for (var i = 0; i < items.length; i++) {
+            var item = items[i];
+            var priceElement = item.querySelector(".item-sale p");
+            var price = parseInt(priceElement.textContent.replace(",", ""));
+
+            if (selectedPrices.length === 0 || selectedPrices.includes("700000") && price >= 700000 || selectedPrices.includes("500000") && price >= 500000 && price < 700000 || selectedPrices.includes("300000") && price >= 300000 && price < 500000 || selectedPrices.includes("150000") && price >= 150000 && price < 300000 || selectedPrices.includes("0") && price < 150000) {
+                item.style.display = "block";
+            } else {
+                item.style.display = "none";
+            }
+        }
+    });
+</script>

@@ -1,0 +1,28 @@
+﻿@model DoAn.Models.Cart
+
+
+@foreach (var item in Model.Items)
+{
+    <div id="fhs_checkout_products" class="fhs_checkout_products">
+        <div class="fhs_checkout_products_item">
+            <div class="fhs_checkout_products_item_img">
+                <img src="@Url.Content(item._product.ImagePro)">
+            </div>
+            <div class="fhs_checkout_products_item_detail">
+                <div class="fhs_checkout_products_item_name">
+                    <h1 style="color:red;font-size:15px;">Tên Sản Phẩm</h1>
+                    <div>@Html.DisplayFor(model => item._product.NamePro)</div>
+                </div>
+                <div class="fhs_checkout_products_item_price">
+                    <h1 style="color:red;font-size:15px;">Số Lượng</h1>
+                    <div class="fhs_checkout_products_item_total">@item._quantity</div>
+                </div>
+                <div class="fhs_checkout_products_item_price">
+                    <h1 style="color:red;font-size:15px;">Giá</h1>
+                    <div class="fhs_checkout_products_item_total">@Html.DisplayFor(model => item._product.Price)</div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+

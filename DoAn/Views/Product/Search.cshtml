@@ -1,0 +1,32 @@
+﻿@model List<DoAn.Models.Product>
+
+<link href="~/Content/MainStyle.css" rel="stylesheet" />
+
+
+@if (Model.Count > 0)
+{
+    <div class="fls">
+        <div class="fls-main">
+            <div class="item-sale">
+                @foreach (var pro in Model)
+                {
+                    <div class="fls-item">
+
+                        <img src="@Url.Content(pro.ImagePro)" />
+                        <div class="fls-item-infor">@Html.DisplayFor(model => pro.NamePro)</div>
+                        <div class="fls-item-price">
+                            <div class="fls-price-special">@Html.DisplayFor(model => pro.Price)</div>
+                        </div>
+                        <a href="/Product/Details/@pro.ProductID" id="detailPro" class="btn btn-default" style="text-decoration:none;">Chi Tiết</a>
+                    </div>
+                }
+            </div>
+            <a href="/Product/Pro_Cate?category=001" style="text-decoration: none; color: white;"><div class="view-more">Xem Thêm</div></a>
+        </div>
+    </div>
+}
+else
+{
+    <p>No products found.</p>
+}
+

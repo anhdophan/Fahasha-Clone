@@ -1,0 +1,59 @@
+﻿@model DoAn.Models.Product
+
+<link href="~/Content/ProductDetail.css" rel="stylesheet" />
+@{
+    var pro = Model;
+}
+
+
+<div class="content-title">THÔNG TIN SẢN PHẨM</div>
+<div class="view-tabs-content">
+    <div class="view-tabs-content-addition">
+        <table class="table-condition">
+            <colgroup>
+                <col width="25%">
+                <col>
+            </colgroup>
+            <tbody>
+                <tr>
+                    <th class="table-label">Tên Nhà Cung Cấp</th>
+                    <td class="table-data"><p>@Html.DisplayFor(model => pro.NameSub)</p></td>
+                </tr>
+                <tr>
+                    <th class="table-label">Tác giả</th>
+                    <td class="table-data"><p>@Html.DisplayFor(model => pro.Author)</p></td>
+                </tr>
+                <tr>
+                    <th class="table-label">NXB</th>
+                    <td class="table-data"><p>@Html.DisplayFor(model => pro.NamePub)</p></td>
+                </tr>
+                <tr>
+                    <th class="table-label">Năm Xuất Bản</th>
+                    <td class="table-data"><p>@Html.DisplayFor(model => pro.Publishingyear)</p></td>
+                </tr>
+                <tr>
+                    <th class="table-label">Ngôn Ngữ</th>
+                    <td class="table-data"><p>@Html.DisplayFor(model => pro.C_Language)</p></td>
+                </tr>
+
+                <tr>
+                    <td colspan="2" style="padding: 0px;">
+                        <div>
+                            Giá sản phẩm trên Fahasa.com đã bao gồm thuế theo luật hiện hành.
+                            Bên cạnh đó, tuỳ vào loại sản phẩm, hình thức và địa chỉ giao hàng
+                            mà có thể phát sinh thêm chi phí khác như Phụ phí đóng gói, phí vận chuyển, phụ phí hàng cồng kềnh,
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="padding: 0px;">
+                        <div>
+                            @Html.DisplayFor(model => pro.DescriptionBig)
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <hr>     
+    </div>
+

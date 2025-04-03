@@ -1,0 +1,61 @@
+﻿.cart-content {
+    border-bottom: 0;
+    margin: 0 0 12px;
+}
+
+.page-title.title-buttons {
+    border-bottom: 0;
+    margin: 0 0 12px;
+}
+
+
+body {
+    color: #333333;
+    font-size: 13px;
+    font-weight: 400;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+}
+
+.cart-empty.body-mh-300 {
+    height: 300px;
+}
+
+.cart-title-nums-item {
+    font-size: 20px;
+}
+
+.checkout-cart-index #content {
+    overflow: visible;
+    padding: 0 !important;
+    box-shadow: none;
+    border: 0;
+    background: transparent !important;
+    font-family: 'Nunito Sans' !important;
+}
+
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+element.style {
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    background-color: #fff;
+    flex: 1;
+    border-radius: 8px;
+}
+
+div.subscribe-title h2 {
+    margin: 0;
+    text-transform: uppercase;
+    color: #fefefe;
+    font-size: 18px;
+    line-height: 25px;
+    display: none;
+}

@@ -1,0 +1,9 @@
+﻿@model  IEnumerable<DoAn.Models.Category>
+
+@foreach (var pro in Model)
+{
+    <div class="icon-1">
+        <div class="icon-menu-row"><a href="/Product/Pro_Cate?category=@pro.IDCate"> <img src="@Url.Content(pro.ImgCate)" /></a></div>
+        <div class="icon-name">@Html.DisplayFor(model => pro.NameCate)</div>
+    </div>
+}

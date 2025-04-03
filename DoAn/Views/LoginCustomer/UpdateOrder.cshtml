@@ -1,0 +1,29 @@
+﻿@model DoAn.Models.OrderPro
+
+@{
+    ViewBag.Title = "Update Order";
+}
+<link href="~/Content/UpdateOrder.css" rel="stylesheet" />
+<h2>Update Order Details</h2>
+
+@using (Html.BeginForm("UpdateOrder", "LoginCustomer", FormMethod.Post))
+{
+    @Html.HiddenFor(model => model.ID)
+
+    <div>
+        <label>Recipient Name:</label>
+        @Html.TextBoxFor(model => model.NameCus)
+    </div>
+
+    <div>
+        <label>Phone:</label>
+        @Html.TextBoxFor(model => model.PhoneCus)
+    </div>
+
+    <div>
+        <label>Delivery Address:</label>
+        @Html.TextBoxFor(model => model.AddressDeliverry)
+    </div>
+
+    <button type="submit">Update</button>
+}

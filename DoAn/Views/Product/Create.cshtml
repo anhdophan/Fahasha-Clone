@@ -1,0 +1,133 @@
+﻿@model DoAn.Models.Product
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+}
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+}
+
+@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+<h2>Thêm Mới Sản Phẩm</h2>
+@using (Html.BeginForm("Create", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <table class="table-bordered">
+        <tr>
+            <td>@Html.LabelFor(model => model.NamePro)</td>
+            <td>
+                @Html.EditorFor(model => model.NamePro)
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+
+        <tr>
+            <td>@Html.LabelFor(model => model.Price)</td>
+            <td>
+                @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control", type = "number" } })
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+
+        <tr>
+            <td>@Html.LabelFor(model => model.DecriptionSmall)</td>
+            <td>
+                @Html.EditorFor(model => model.DecriptionSmall)
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(model => model.DescriptionBig)</td>
+            <td>
+                @Html.EditorFor(model => model.DescriptionBig)
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+
+        <tr>
+            <td>@Html.LabelFor(model => model.Category)</td>
+            <td>
+                @Html.DropDownListFor(model => model.Category, (SelectList)ViewBag.listCategory)
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+
+        <tr>
+            <td>@Html.LabelFor(model => model.Author)</td>
+            <td>
+                @Html.EditorFor(model => model.Author)
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+
+        <tr>
+            <td>@Html.LabelFor(model => model.Supplier)</td>
+            <td>
+                @Html.DropDownListFor(model => model.Supplier, (SelectList)ViewBag.listSupplier)
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+
+        <tr>
+            <td>@Html.LabelFor(model => model.Publisher)</td>
+            <td>
+                @Html.DropDownListFor(model => model.Publisher, (SelectList)ViewBag.listPublisher)
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+
+        <tr>
+            <td>@Html.LabelFor(model => model.Series)</td>
+            <td>
+                @Html.EditorFor(model => model.Series)
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+
+        <tr>
+            <td>@Html.LabelFor(model => model.Publishingyear)</td>
+            <td>
+                @Html.EditorFor(model => model.Publishingyear, new { htmlAttributes = new { @class = "form-control", type = "number" } })
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+
+        <tr>
+            <td>@Html.LabelFor(model => model.C_Language)</td>
+            <td>
+                @Html.EditorFor(model => model.C_Language)
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+
+        <tr>
+            <td>@Html.LabelFor(model => model.Quantity)</td>
+            <td>
+                @Html.EditorFor(model => model.Quantity, new { htmlAttributes = new { @class = "form-control", type = "number"} })
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+
+        <tr>
+            <td>@Html.LabelFor(model => model.ImagePro)</td>
+            <td>
+                <img src="@Url.Content(Model.ImagePro)" height="150" width="150"
+                     id="previewImg" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="file" name="UploadImage" onchange="ChangeImage(this,document.getElementById('previewImg'))" />
+                <input type="submit"  name="createPro" value="Tạo mới" />
+            </td>
+        </tr>
+    </table>
+}
+

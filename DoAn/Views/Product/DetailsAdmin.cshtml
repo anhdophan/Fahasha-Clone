@@ -1,0 +1,125 @@
+﻿@model DoAn.Models.Product
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/ProductDetails.css" rel="stylesheet" />
+
+<h2>Details</h2>
+
+<div>
+    <h4>Product</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên Sản Phẩm
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NamePro)
+        </dd>
+
+        <dt>
+            Mô Tả
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DecriptionSmall)
+        </dd>
+        <dt>
+            Nội Dung
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DescriptionBig)
+        </dd>
+
+        <dt>
+            Loại Hàng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category)
+        </dd>
+
+        <dt>
+            Giá
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            Hình Ảnh
+        </dt>
+
+        <dd>
+            <img src="@Url.Content(Model.ImagePro)" style="width:100px;" />
+
+        </dd>
+
+        <dt>
+            Nhà Cung Cấp
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Supplier)
+        </dd>
+
+        <dt>
+            Tác Giả
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Author)
+        </dd>
+
+        <dt>
+            Nhà Xuất Bản
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Publisher)
+        </dd>
+
+        <dt>
+            Năm Xuất Bản
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Publishingyear)
+        </dd>
+
+        <dt>
+            Ngôn Ngữ
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.C_Language)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Series)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Series)
+        </dd>
+
+
+        <dt>
+            Số Lượng Đã Nhập
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Quantity)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ProductID }) |
+    @Html.ActionLink("Back to List", "QuanLySP")
+</p>

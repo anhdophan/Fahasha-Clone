@@ -1,0 +1,21 @@
+﻿@model DoAn.Models.AdminUser
+@{
+    ViewBag.Title = "Set User Role";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Set Role for User @Model.NameUser</h2>
+
+@using (Html.BeginForm("UpdateRole", "LoginUser", FormMethod.Post))
+{
+    @Html.HiddenFor(model => model.ID)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.RoleUser)
+        @Html.DropDownListFor(model => model.RoleUser,
+            new SelectList(new List<string> { "Admin", "Employee" }, Model.RoleUser),
+            "Select Role", new { @class = "form-control" })
+    </div>
+
+    <input type="submit" value="Update Role" class="btn btn-primary" />
+}

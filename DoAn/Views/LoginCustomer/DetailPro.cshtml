@@ -1,0 +1,47 @@
+﻿@model DoAn.Models.OrderDetail
+
+@{
+    ViewBag.Title = "DetailPro";
+    Layout = "~/Views/Shared/master2.cshtml";
+}
+
+<link href="~/Content/History.css" rel="stylesheet" />
+<link href="~/Content/Account.css" rel="stylesheet" />
+<div class="container">
+    <div class="block_account">
+        <div class="block-title">
+            <strong><span>Tài Khoản</span></strong>
+        </div>
+        <div class="block_content">
+            <ul>
+                <li><a href="/LoginCustomer/ThongTinCaNhan" style="text-decoration:none;">Thông Tin Cá Nhân</a></li>
+                <li><a href="/LoginCustomer/History" style="text-decoration:none;">Lịch Sử Mua Hàng</a></li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="History">
+        <div class="History_Header">
+            <h1>Chi Tiết Đơn Hàng</h1>
+        </div>
+        <table class="History_Main">
+            <hr>
+            <tr>
+                <th>Tên Sản Phẩm</th>
+                <th>Hình Ảnh SP</th>
+                <th>Số Lượng</th>
+                <th>Tổng Tiền</th>
+                <th></th>
+            </tr>
+            <tr>
+                <td> @Html.DisplayFor(model => model.NamePro)</td>
+                <td><img src="@Url.Content(Model.ImgPro)" style="height:100px;width:100px;"  /></td>
+                <td> @Html.DisplayFor(model => model.Quantity)</td>
+                <td> @Html.DisplayFor(model => model.UnitPrice)</td>
+            </tr>
+            
+        </table>
+    </div>
+</div>
+

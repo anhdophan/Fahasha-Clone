@@ -1,0 +1,3 @@
+﻿@model DoAn.Models.Supplier
+@Html.DropDownListFor(model => model.IDSup,
+new SelectList(Model.ListSup.OrderBy(model => model.NameSup), "SupID", "SupName"), "--Select Supplier--")

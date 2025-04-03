@@ -1,0 +1,146 @@
+﻿.fhs_login_form {
+    background-color: white;
+    width: 1175px;
+    margin-left: 150px;
+    margin-right: 150px;
+    margin-top: 10px;
+    padding-bottom:10px;
+}
+
+.fhs_login_form_content {
+    justify-content: center;
+    background-color: white;
+    padding: 30px;
+    -webkit-box-align: center;
+    align-items: center;
+    flex-direction: row;
+    display: -webkit-flex;
+    -webkit-box-pack: center;
+    padding-bottom: 10px;
+}
+
+.login-window {
+    background-color: #fff;
+    position: relative;
+    width: 450px;
+    max-width: calc(100vw - 20px);
+    border-radius: 10px;
+}
+
+.login-tab {
+    padding: 24px 8px 8px 8px !important;
+    font-size: 1.1em;
+    font-family: sans-serif;
+    font-weight: normal;
+}
+
+    .login-tab > .tab-login {
+        display: inline-block;
+        text-align: center;
+        cursor: pointer;
+        padding: 0 8px;
+        user-select: none;
+        width: calc(50% - 16px);
+    }
+
+    .login-tab > .tabs-register {
+        display: inline-block;
+        text-align: center;
+        cursor: pointer;
+        padding: 0 8px;
+        user-select: none;
+        width: calc(50% - 16px);
+    }
+
+.login-content {
+    padding: 0 32px 16px 32px;
+}
+
+.register-content {
+    padding: 0 32px 16px 32px;
+}
+
+form {
+    display: inline;
+}
+
+.fhs-input-box {
+    padding: 8px 0;
+    clear: both;
+}
+
+.fhs-input-group {
+    position: relative;
+    flex-direction: row;
+    align-items: center;
+}
+
+
+.fhs-textbox {
+    width: 100%;
+    padding: 5px 12px;
+    font-size: 1.2em;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25em;
+}
+
+.fhs-input-icon {
+    display: block;
+    position: absolute;
+    right: 12px;
+    color: #2489F4;
+    cursor: pointer;
+    user-select: none;
+}
+
+.fhs-input-group {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.fhs-forget-pass {
+    justify-content: flex-end;
+    color: #C92127;
+    cursor: pointer;
+    user-select: none;
+}
+
+label {
+    padding: 4px;
+    font-weight: normal;
+    color: #555555;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+button {
+    font-size: 12px;
+    color: #545759;
+    background-color: white;
+    border: 1px solid #ebebeb;
+    border-radius: 3px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.fhs-btn-box > button {
+    -webkit-box-align: center;
+    align-items: center;
+    justify-content: center;
+    width: 245px;
+    max-width: 100%;
+    font-size: 1.1em;
+    font-weight: 700;
+    border-radius: 8px;
+    padding: 8px 0;
+    margin: 8px 0;
+}

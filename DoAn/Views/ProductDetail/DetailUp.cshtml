@@ -1,0 +1,71 @@
+﻿@model DoAn.Models.Product
+
+<link href="~/Content/ProductDetail.css" rel="stylesheet" />
+@{ 
+    var pro = Model;
+
+    
+}
+
+
+    <div class="Product-Essential">
+        <div class="Media">
+            <div class="product-img">
+                <img src="@Url.Content(pro.ImagePro)" />
+            </div>
+            <div class="view-add-box">
+                <a style="text-decoration:none;" href="/ShoppingCart/AddToCart/@pro.ProductID">
+                    <button type="button" id="addToCart" title="Thêm vào giỏ hàng" class="btn-cart-to-cart">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cart2" viewBox="0 0 16 16">
+                            <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z" />
+                        </svg>
+                        <span>Thêm vào giỏ hàng</span>
+                    </button>
+                </a>                
+            </div>
+        </div>
+        <div class="details">
+            <h1>
+                <p class="fhs_event_delivery_label_icon" >@Html.DisplayFor(model => pro.NamePro)</p>              
+            </h1>
+            <div class="product-view-sa">
+                <div class="product-view-sa_one">
+                    <div class="product-view-sa-supplier">
+                        <span class="name-name">Nhà cung cấp: </span>
+                        <p style="color: blue;">@Html.DisplayFor(model => pro.NameSub)</p>
+                    </div>
+                    <div class="product-view-sa-author">
+                        <span class="name-name">Tác giả: </span>
+                        <span><p>@Html.DisplayFor(model => pro.Author)</p></span>
+                    </div>
+                </div>
+                <div class="product-view-sa_two">
+                    <div class="product-view-sa-supplier">
+                        <span class="name-name">Nhà xuất bản: </span>
+                        <span><p>@Html.DisplayFor(model => pro.NamePub)</p></span>
+                    </div>               
+                </div>
+                <div class="product-view-sa_four">
+                    <div class="product-view-sa-series">
+                        <span class="name-name">Bộ: </span>
+                        <span>
+                            <p style="color: blue;">@Html.DisplayFor(model => pro.Series)</p>
+                                <span class="icon_seemore_blue"></span>
+                        </span>
+                    </div>
+                </div>
+            </div>          
+            <div class="Price-block">
+                <div class="product-details-price">
+                    <div class="price-box">
+                        <p class="special-price">
+                            <span class="price1" id="product-price-287377">@Html.DisplayFor(model => pro.Price)</span>
+                        </p>          
+                    </div>
+                </div>
+            </div>         
+           
+        </div>
+    </div>
+
+

@@ -1,0 +1,18 @@
+﻿@model DoAn.Controllers.MoMoPayment.model.MomoExecuteResponseModel
+
+@{
+    Layout = "~/Views/Shared/master2.cshtml"; // Hoặc layout bạn đang sử dụng
+    ViewBag.Title = "Thanh toán thành công";
+}
+
+<div class="payment-success" style="padding: 20px; border: 1px solid #ccc; margin: 20px auto; max-width: 600px; text-align: center;">
+    <h2>Thanh toán thành công</h2>
+    <p>Cảm ơn bạn đã thanh toán. Dưới đây là thông tin chi tiết đơn hàng của bạn:</p>
+    <div class="order-info" style="margin-top: 20px; font-size: 16px;">
+        <p><strong>Mã đơn hàng:</strong> @Model.OrderId</p>
+        <p><strong>Số tiền:</strong> @Model.Amount</p>
+        <p><strong>Nội dung thanh toán:</strong> @Model.OrderInfo</p>
+    </div>
+    <p style="margin-top: 20px;">Chúng tôi sẽ gửi email xác nhận và cập nhật trạng thái đơn hàng cho bạn sớm nhất.</p>
+    <a href="@Url.Action("Index", "Product")" class="btn btn-primary" style="margin-top: 20px; padding: 10px 20px;">Quay về trang chủ</a>
+</div>

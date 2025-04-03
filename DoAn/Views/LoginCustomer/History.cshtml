@@ -1,0 +1,110 @@
+﻿@model IEnumerable<DoAn.Models.OrderPro>
+
+@{
+    ViewBag.Title = "History";
+    Layout = "~/Views/Shared/master2.cshtml";
+
+    // Danh sách cho dropdown phương thức thanh toán
+    var paymentMethods = new List<SelectListItem>
+{
+         new SelectListItem { Text = "Tất cả", Value = "" },
+         new SelectListItem { Text = "Thanh toán COD", Value = "COD" },
+         new SelectListItem { Text = "Thanh toán qua MoMo", Value = "MoMo" }
+    };
+
+    // Danh sách cho dropdown tình trạng đơn hàng
+    var orderStatuses = new List<SelectListItem>
+{
+         new SelectListItem { Text = "Tất cả", Value = "" },
+         new SelectListItem { Text = "Đang Xác Nhận", Value = "Đang Xác Nhận" },
+         new SelectListItem { Text = "Đã Xác Nhận", Value = "Đã Xác Nhận" },
+         new SelectListItem { Text = "Yêu Cầu Hủy", Value = "Yêu Cầu Hủy" },
+         new SelectListItem { Text = "Xác Nhận Hủy", Value = "Xác Nhận Hủy" }
+    };
+
+    // Giá trị đã chọn (nếu có)
+    string selectedPaymentMethod = ViewBag.SelectedPaymentMethod as string ?? "";
+    string selectedStatus = ViewBag.SelectedStatus as string ?? "";
+}
+
+<link href="~/Content/History.css" rel="stylesheet" />
+<link href="~/Content/Account.css" rel="stylesheet" />
+
+<div class="container">
+    <div class="block_account">
+        <div class="block-title">
+            <strong><span>Tài Khoản</span></strong>
+        </div>
+        <div class="block_content">
+            <ul>
+                <li><a href="/LoginCustomer/ThongTinCaNhan" style="text-decoration:none;">Thông Tin Cá Nhân</a></li>
+                <li><a href="/LoginCustomer/History" style="text-decoration:none;">Lịch Sử Mua Hàng</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="History">
+        <div class="History_Header">
+            <h1>LỊCH SỬ ĐƠN HÀNG</h1>
+        </div>
+
+        <!-- Form lọc đơn hàng -->
+        @using (Html.BeginForm("History", "LoginCustomer", FormMethod.Get))
+        {
+            <div class="filter-group">
+                <label for="paymentMethod">Phương thức thanh toán:</label>
+                @Html.DropDownList("paymentMethod", new SelectList(paymentMethods, "Value", "Text", selectedPaymentMethod), new { @class = "form-control" })
+            </div>
+            <div class="filter-group">
+                <label for="status">Tình trạng đơn hàng:</label>
+                @Html.DropDownList("status", new SelectList(orderStatuses, "Value", "Text", selectedStatus), new { @class = "form-control" })
+            </div>
+            <button type="submit" class="btn btn-primary">Lọc</button>
+        }
+
+    <table class="History_Main">
+        <tr>
+            <th>Tên Người Nhận</th>
+            <th>Ngày Đặt Hàng</th>
+            <th>Địa Chỉ</th>
+            <th>Số điện thoại</th>
+            <th>Phương thức thanh toán</th>
+            <th>Tình Trạng</th>
+            <th>Chi Tiết</th>
+        </tr>
+
+        @foreach (var order in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => order.NameCus)</td>
+                <td>@Html.DisplayFor(modelItem => order.DateOrder)</td>
+                <td>@Html.DisplayFor(modelItem => order.AddressDeliverry)</td>
+                <td>@Html.DisplayFor(modelItem => order.PhoneCus)</td>
+                <td>
+                    @(order.Status ? "Thanh toán COD" : "Thanh toán qua MoMo")
+                </td>
+                <td>@Html.DisplayFor(modelItem => order.TinhTrang)</td>
+                <td>
+                    @if (order.TinhTrang.Trim() == "Đang Xác Nhận")
+                    {
+                        @Html.ActionLink("Chi Tiết", "DetailPro", new { id = order.ID }, new { @class = "btn btn-default", style = "text-decoration:none;" })
+                        @Html.ActionLink("Cập Nhật Thông Tin", "UpdateOrder", new { id = order.ID }, new { @class = "btn btn-default", style = "text-decoration:none;" })
+                        @Html.ActionLink("Yêu Cầu Hủy", "RequestCancelOrder", new { id = order.ID }, new { @class = "btn btn-danger", style = "text-decoration:none;" })
+                    }
+                    else if (order.TinhTrang.Trim() == "Đã Xác Nhận" || order.TinhTrang.Trim() == "Xác Nhận Hủy")
+                    {
+                        @Html.ActionLink("Chi Tiết", "DetailPro", new { id = order.ID }, new { @class = "btn btn-default", style = "text-decoration:none;" })
+                    }
+                    else if (order.TinhTrang.Trim() == "Yêu Cầu Hủy")
+                    {
+                        @Html.ActionLink("Chi Tiết", "DetailPro", new { id = order.ID }, new { @class = "btn btn-default", style = "text-decoration:none;" })
+                        @Html.ActionLink("Hủy Yêu Cầu", "RequestCancelOrder2", new { id = order.ID }, new { @class = "btn btn-warning", style = "text-decoration:none;" })
+                    }
+                </td>
+            </tr>
+        }
+
+
+    </table>
+    </div>
+</div>

@@ -1,0 +1,66 @@
+﻿@model DoAn.Models.OrderDetail
+
+@{
+    ViewBag.Title = "DetailPro";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>DetailPro</h2>
+
+<div>
+    <h4>OrderDetail</h4>
+    <hr />
+    <dl class="dl-horizontal" name="proBox">
+        <dt id="idPro">
+           ID Sản Phẩm
+        </dt>
+
+        <dd id="valueID">
+            @Html.DisplayFor(model => model.IDProduct)
+        </dd>
+
+        <dt id="idOrder">
+            ID Đơn Hàng
+        </dt>
+
+        <dd id="valueIdOrder">
+            @Html.DisplayFor(model => model.IDOrder)
+        </dd>
+
+        <dt id="quantity">
+            Số Lượng Sản Phẩm
+        </dt>
+
+        <dd id="valueQuantity">
+            @Html.DisplayFor(model => model.Quantity)
+        </dd>
+
+        <dt id="price">
+          Giá
+        </dt>
+
+        <dd id="valuePrice">
+            @Html.DisplayFor(model => model.UnitPrice)
+        </dd>
+
+        <dt id="img">
+           Hình Ảnh
+        </dt>
+
+        <dd id="valueIMG">
+            <img style="width:200px;" src="@Url.Content(Model.ImgPro)" />
+        </dd>
+
+        <dt id="namePro">
+           Tên Sản Phẩm
+        </dt>
+
+        <dd id="valueNamePro">
+            @Html.DisplayFor(model => model.NamePro)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "History")
+</p>

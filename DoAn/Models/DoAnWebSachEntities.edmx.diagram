@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b9e3fad01ce5438ab8e7f15cf617ba0a" Name="Diagram1">
+        <EntityTypeShape EntityType="DoAnWebSachEntities.AdminUser" Width="1.5" PointX="5.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DoAnWebSachEntities.Category" Width="1.5" PointX="0.75" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DoAnWebSachEntities.Customer" Width="1.5" PointX="0.75" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DoAnWebSachEntities.OrderDetail" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DoAnWebSachEntities.OrderPro" Width="1.5" PointX="3" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DoAnWebSachEntities.Product" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DoAnWebSachEntities.Publisher" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DoAnWebSachEntities.Supplier" Width="1.5" PointX="0.75" PointY="7.5" IsExpanded="true" />
+        <AssociationConnector Association="DoAnWebSachEntities.FK_Products_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="DoAnWebSachEntities.FK__OrderPro__IDCus__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="DoAnWebSachEntities.FK__OrderDeta__IDOrd__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="DoAnWebSachEntities.FK_OrderDetail_Products" ManuallyRouted="false" />
+        <AssociationConnector Association="DoAnWebSachEntities.FK_Products_Publisher" ManuallyRouted="false" />
+        <AssociationConnector Association="DoAnWebSachEntities.FK_Products_Supplier" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

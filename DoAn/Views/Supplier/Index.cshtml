@@ -1,0 +1,48 @@
+﻿@model IEnumerable<DoAn.Models.Supplier>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Index", "Supplier", FormMethod.Get))
+{
+    <input type="text" name="_name" />
+    <input type="submit" name="Search" />
+    <a href="/Supplier/Create" class="btn btn-default">New Supplier</a>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IDSup)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NameSup)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IDSup)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NameSup)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+
+    </table>
+}

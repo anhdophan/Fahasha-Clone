@@ -1,0 +1,41 @@
+﻿@model DoAn.Models.Cart
+
+@{
+    ViewBag.Title = "ThanhToan";
+    Layout = "~/Views/Shared/master2.cshtml";
+}
+<link href="~/Content/thanhtoan.css" rel="stylesheet" />
+
+@using (Html.BeginForm("ThanhToan", "ShoppingCart"))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="page">
+        <div class="main-container col1-layout no-margin-top">
+            <div class="main" style="width: 1628px;margin-left: 0px;">
+                <div class="col-main">
+                    <div class="container" style="width: 1290px; margin-left: 144.600px;margin-right: 144.600px;">
+                        <div class="fhs_checkout_block">
+                            <div class="fhs_checkout_block_title">Kiểm tra lại đơn hàng</div>
+
+                            <div class="fhs_checkout_block_content">
+                                @{ Html.RenderAction("Check_Again", "ShoppingCart"); }
+
+                                @using (Html.BeginForm("ThanhToan", "ShoppingCart", FormMethod.Post))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    <!-- Nội dung form hiển thị thông tin đơn hàng -->
+                                    <div class="method-button-cart">
+                                        <!-- Nút xác nhận đơn hàng thông thường -->
+                                        <button type="submit" name="actionType" value="NormalPayment" class="button">Xác Nhận Đơn Hàng</button>
+                                   
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

@@ -1,0 +1,48 @@
+﻿@model IEnumerable<DoAn.Models.Category>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm("Index", "Categories", FormMethod.Get))
+{
+    <input type="text" name="_name" />
+    <input type="submit" name="Search" />
+    <a href="/Categories/Create" class="btn btn-default">New Category</a>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IDCate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NameCate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ImgCate)
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IDCate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NameCate)
+                </td>
+                <td>
+                    <img src="@Url.Content(item.ImgCate)" />
+                </td>
+
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+
+    </table>
+}

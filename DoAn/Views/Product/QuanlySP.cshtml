@@ -1,0 +1,53 @@
+﻿@*@model IEnumerable< DemoDB.Models.Product>*@
+@using DoAn.Models
+@using PagedList.Mvc
+@model PagedList.PagedList<Product>
+<link href="~/Content/ProductList.css" rel="stylesheet" />
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success" id="notiAddPro">@TempData["SuccessMessage"]</div>
+}
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger" id="notiAddPro">@TempData["ErrorMessage"]</div>
+}
+
+
+
+
+<div class="container" style="padding-top:50px;">
+    @Html.ValidationSummary(true, "", new { @class = "text-danger", @id = "notiAddPro" })
+    <h2>DANH SÁNH SẢN PHẨM</h2>
+    @using (Html.BeginForm("QuanlySP", "Product", FormMethod.Get))
+    {
+        <input type="text" name="searchTerm" class="form-control" placeholder="Nhập tên sản phẩm..." value="@Request.QueryString["searchTerm"]" />
+        <button type="submit" name="searchTermBtn" class="btn btn-primary">Tìm kiếm</button>
+    }
+    <a href="/Product/Create" class="btn btn-default" id="addPro">Thêm Sản Phẩm</a>
+    <div class="row">
+        @foreach (var pro in Model)
+        {
+            <div class="col-sm-12 col-sm-6 col-md-4 col-lg-3" style="width:250px;">
+                <div class="card-pro">
+                    <img src="@Url.Content(pro.ImagePro)" height="150" width="150" />
+                    <p>@Html.DisplayFor(model => pro.NamePro)</p>
+                    <p>@Html.DisplayFor(model => pro.Price)</p>
+                    <a href="/Product/Edit/@pro.ProductID" name="editPro" class="btn btn-default">Edit</a>
+                    <a href="/Product/DetailsAdmin/@pro.ProductID" class="btn btn-default">Details</a>
+                    <a href="/Product/Delete/@pro.ProductID" class="btn btn-default">Delete</a>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+        Trang @(Model.PageCount<Model.PageNumber?0:Model.PageNumber)/@Model.PageCount
+        <div class="MenuPage">
+            @Html.PagedListPager(Model, page => Url.Action("QuanLySP", new { page = page }))
+        </div>
+

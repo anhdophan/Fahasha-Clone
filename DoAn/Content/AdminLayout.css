@@ -1,0 +1,64 @@
+﻿/* Global Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar Styles */
+.navbar-inverse {
+    background-color: #343a40;
+    border-color: #343a40;
+}
+
+    .navbar-inverse .navbar-nav > li > a {
+        color: #f8f9fa;
+        font-size: 16px;
+        padding: 15px 20px;
+        transition: color 0.2s ease;
+    }
+
+        .navbar-inverse .navbar-nav > li > a:hover,
+        .navbar-inverse .navbar-nav > li > a:focus {
+            color: #ffc107;
+            background-color: transparent;
+        }
+
+.navbar-toggle {
+    border-color: #ffc107;
+}
+
+    .navbar-toggle .icon-bar {
+        background-color: #ffc107;
+    }
+
+/* Body Content */
+.body-content {
+    padding-top: 70px; /* đảm bảo nội dung không bị che bởi navbar */
+    background-color: #e9ecef;
+    min-height: calc(100vh - 70px);
+}
+
+/* Content Container */
+#div-content {
+    background: #fff;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive adjustments for side columns */
+.container-fluid .row > [class*="col-"] {
+    padding: 15px;
+}
+
+/* Footer (nếu cần) */
+/* .footer {
+    padding: 20px;
+    text-align: center;
+    background-color: #343a40;
+    color: #f8f9fa;
+} */

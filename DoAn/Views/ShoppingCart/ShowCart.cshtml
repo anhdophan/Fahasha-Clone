@@ -1,0 +1,127 @@
+﻿@model DoAn.Models.Cart
+
+@{
+    ViewBag.Title = "ShowCart";
+    Layout = "~/Views/Shared/master2.cshtml";
+}
+<link href="~/Content/cart.css" rel="stylesheet" />
+
+
+@if (Model != null)
+{
+
+    <div style=" width: 1175px; padding-left: 175px; padding-bottom: 10px; padding-top:20px; border-radius: 5px 5px 5px 5px;">
+        <div class="cart-page">
+            <div id="content">
+                <div class="cart">
+                    <div class="page-title title-buttons">
+                        <div class="page-title-container">
+                            <h1 style="display: inline-block; width: auto; font-size: 20px;">GIỎ HÀNG: @Model.Total_quantity() sản phấm </h1>
+                        </div>
+                    </div>
+                    <button class="button btn-proceed-checkout btn-checkout btn-checkout-disable" style="background-color:red;color:white; border-radius:10px 10px 10px 10px; width:100px;">
+                        <a style="text-decoration:none;color:white" href="@Url.Action("Index","Product")">Tiếp Tục Mua Hàng</a>
+                    </button>
+
+                    <input name="form_key" type="hidden">
+                    <div class="cart-ui-content row">
+                        <div class="col-sm-8 col-xs-12" style="background-color:whitesmoke;">
+                            <div>
+                                <div class="header-cart-item" style="display: flex;">
+                                    <div>Số lượng</div>
+                                    <div></div>
+                                </div>
+                                @foreach (var item in Model.Items)
+                                {
+                                    decimal total = item._quantity * (decimal)item._product.Price.Value;
+                                    <div class="product-cart-left">
+                                        <div class="item-product-cart">
+
+                                            <div class="img-product-cart">
+                                                <a class="product-image">
+                                                    <img src="@Url.Content(item._product.ImagePro)" height="120" width="120" />
+                                                </a>
+                                            </div>
+                                            <div class="group-product-info">
+                                                <div class="info-product-cart">
+                                                    <div>
+                                                        <h2 class="product-name-full-text">
+                                                            @Html.DisplayFor(model => item._product.NamePro)
+                                                        </h2>
+                                                    </div>
+                                                    <div class="price-original">
+                                                        <div class="cart-price">
+                                                            <div class="cart-fhsItem-price">
+                                                                <div>
+                                                                    <a class="price">@Html.DisplayFor(modle => item._product.Price)</a>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="number-product-cart">
+
+                                                    <div class="product-view-quantity-box-block">
+                                                        @using (Html.BeginForm("Update_Cart_Quantity", "ShoppingCart"))
+                                                        {
+                                                            <input type="hidden" value="@item._product.ProductID" name="idPro" />
+                                                            <input type="number" value="@item._quantity" name="cartQuantity" class="input_quantity" />
+                                                            <input type="submit" value="Update" name="updateQuantity" class="input_quantity" />
+                                                        }
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="div-of-btn-remove-cart">
+                                                <a title="Remove Item" class="btn-remove-desktop-cart" href="/ShoppingCart/RemoveCart/@item._product.ProductID" style="text-decoration:none;color:red;">
+                                                    Xóa
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                        <div class="col-sm-4 hidden-max-width-992">
+                            <div class="total-cart-right">
+                                <div class="effect-scroll-cart-right">
+                                    <div class="cart-event-promo-outer">
+
+                                        <div style="clear:both;"></div>
+                                        <div class="block-total-cart">
+                                            <div class="block-totals-cart-page">
+
+                                                <div class="border-product"></div>
+                                                <div class="total-cart-page title-final-total">
+                                                    <div class="title-cart-page-left">Tổng Số Tiền (gồm VAT):</div>
+                                                    <div class="number-cart-page-right">
+                                                        <span class="price">@Model.Total_money()</span>
+
+                                                    </div>
+                                                    <div class="method-button-cart">    
+                                                        <a href="/ShoppingCart/ThanhToan" id="COD" style="text-decoration:none; background-color:lawngreen;color:white;" class="btn btn-default">Thanh Toán Khi Nhận Hàng</a>
+                                                    </div>
+                                                    <div class="method-button-cart">
+                                                        <a href="/ShoppingCart/ThanhToan_MoMo" id="Momo" style="text-decoration:none; background-color:deeppink;color:white;" class="btn btn-default">Thanh Toán MoMo</a>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    @Html.Partial("EmptyCart")
+}

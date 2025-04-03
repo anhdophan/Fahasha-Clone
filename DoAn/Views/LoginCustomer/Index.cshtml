@@ -1,0 +1,66 @@
+﻿@model DoAn.Models.Customer
+
+@{
+    ViewBag.Title = "FormLogin";
+    Layout = "~/Views/Shared/master2.cshtml";
+}
+<link rel="stylesheet" href="~/Content/login.css">
+@if (Session["isLoggedIn"] == null)
+{
+    <style>
+        .field-validation-error {
+            color: red;
+        }
+    </style>
+    using (Html.BeginForm("LoginAcount", "LoginCustomer"))
+    {
+        @Html.AntiForgeryToken()
+        <div class="fhs_login_form">
+            <div class="fhs_login_form_content">
+                <div class="login-window">
+                    <div>
+                        <ul class="login-tab">
+                            <li class="tab-login"><a style="text-decoration:none;color :red;" href="/LoginCustomer/Index">Đăng nhập</a><hr></li>
+                            <li class="tabs-register"><a style="text-decoration:none; color :red;" href="/LoginCustomer/RegisterUser">Đăng ký</a><hr></li>
+                        </ul>
+                        <div class="popup-change-title" style="display:none;">
+                            Khôi phục mật khẩu
+                        </div>
+                    </div>
+                    <div class="login-content">
+                        <form role="form" method="post">
+                            <div class="fhs-input-box">
+                                <label>Số điện thoại</label>
+                                <div class="fhs-input-group">
+                                    <input class="fhs-textbox" type="number" placeholder="Nhập số điện thoại" id="login_username" maxlength="200" name="PhoneCus" value="">
+                                    <span class="fhs-input-icon fhs-textbox-alert"></span>
+                                </div>
+                                <div class="fhs-input-alert"></div>
+                            </div>
+                            <div class="fhs-input-box fhs-input-display">
+                                <div class="clear space"></div>
+                                <label>Mật khẩu</label>
+                                <div class="fhs-input-group">
+                                    <input class="fhs-textbox" type="password" placeholder="Nhập mật khẩu" id="login_password" name="PasswordUser" maxlength="30" value="">
+                                </div>
+                                <div class="fhs-input-alert"></div>
+                            </div>
+                            <div class="fhs-input-box">
+                                <div class="fhs-forget-pass"><span>Quên mật khẩu?</span></div>
+                            </div>
+                            <div class="fhs-input-box">
+                                <div class="fhs-btn-box">
+                                    <button type="submit" id="loginSubmit" title="Đăng nhập" class="fhs-btn-login" value="Login">Đăng Nhập</button>
+                                </div>
+                                <div class="fhs-popup-msg fhs-login-msg"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}
+else
+{
+    @Html.Partial("ThongTinCaNhan", Model)
+}

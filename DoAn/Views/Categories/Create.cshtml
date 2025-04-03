@@ -1,0 +1,40 @@
+﻿@model DoAn.Models.Category
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm("Create", "Categories", FormMethod.Post, new
+{ enctype = "multipart/form-data" }))
+{
+    <table class="table-bordered">
+        <tr>
+            <td>ID</td>
+            <td> @Html.EditorFor(model => model.Id)</td>
+        </tr>
+        <tr>
+            <td>ID Cate</td>
+            <td> @Html.EditorFor(model => model.IDCate)</td>
+        </tr>
+        <tr>
+            <td>Name Cate</td>
+            <td> @Html.EditorFor(model => model.NameCate)</td>
+        </tr>
+        <tr>
+            <td>Ảnh</td>
+            <td>
+                <img src="@Url.Content(Model.ImgCate)" height="150" width="150"
+                     id="previewImg" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="file" name="UploadImage" onchange="ChangeImage(this,document.getElementById('previewImg'))" />
+                <input type="submit" value="Create" />
+            </td>
+        </tr>
+    </table>
+}

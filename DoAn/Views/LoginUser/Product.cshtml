@@ -1,0 +1,63 @@
+﻿@model IEnumerable<DoAn.Models.Product>
+
+@{
+    ViewBag.Title = "Product";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Hàng Tồn Kho</h2>
+
+@using (Html.BeginForm("Index", "Categories", FormMethod.Get))
+{
+    <input type="text" name="_name" />
+    <input type="submit" name="Search" />
+
+    <table class="table">
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.ProductID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NamePro)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SoldQuantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RemainQuantity)
+            </th>
+
+
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NamePro)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SoldQuantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RemainQuantity)
+                </td>
+
+            </tr>
+        }
+
+    </table>
+}

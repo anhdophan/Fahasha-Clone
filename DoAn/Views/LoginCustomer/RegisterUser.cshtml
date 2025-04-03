@@ -1,0 +1,133 @@
+﻿@model DoAn.Models.Customer
+
+@{
+    ViewBag.Title = "RegisterUser";
+    Layout = "~/Views/Shared/master2.cshtml";
+}
+<link rel="stylesheet" href="~/Content/login.css" />
+<style>
+    .field-validation-error {
+        color: red;
+    }
+
+    .alert {
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid transparent;
+        border-radius: 4px;
+    }
+
+    .alert-danger {
+        color: #a94442;
+        background-color: #f2dede;
+        border-color: #ebccd1;
+    }
+
+    .alert-success {
+        color: #3c763d;
+        background-color: #dff0d8;
+        border-color: #d6e9c6;
+    }
+</style>
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger" id="notiregCus">
+        @Html.Raw(TempData["ErrorMessage"].ToString())
+    </div>
+}
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success" id="notiregCus">
+        @Html.Raw(TempData["SuccessMessage"].ToString())
+    </div>
+}
+
+@using (Html.BeginForm("RegisterUser", "LoginCustomer", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="fhs_login_form">
+        <div class="fhs_login_form_content">
+            <div class="login-window">
+                <div>
+                    <ul class="login-tab">
+                        <li class="tab-login">
+                            @Html.ActionLink("Đăng nhập", "Index", "LoginCustomer", null, new { style = "text-decoration:none;color:red;" })
+                            <hr />
+                        </li>
+                        <li class="tabs-register">
+                            @Html.ActionLink("Đăng ký", "RegisterUser", "LoginCustomer", null, new { style = "text-decoration:none;color:red;" })
+                            <hr />
+                        </li>
+                    </ul>
+                </div>
+                <div class="register-content">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                    <div class="fhs-input-box">
+                        <label>Họ Tên Khách Hàng</label>
+                        <div class="fhs-input-group">
+                            @Html.EditorFor(m => m.NameCus, new { htmlAttributes = new { @class = "fhs-textbox", placeholder = "Họ Tên", maxlength = "20" } })
+                        </div>
+                        @Html.ValidationMessageFor(m => m.NameCus, "", new { @class = "field-validation-error" })
+                    </div>
+
+                    <div class="fhs-input-box">
+                        <label>Số điện thoại</label>
+                        <div class="fhs-input-group">
+                            @Html.EditorFor(m => m.PhoneCus, new { htmlAttributes = new { @class = "fhs-textbox", placeholder = "Nhập số điện thoại", maxlength = "10", type = "tel" } })
+                        </div>
+                        @Html.ValidationMessageFor(m => m.PhoneCus, "", new { @class = "field-validation-error" })
+                    </div>
+
+                    <div class="fhs-input-box">
+                        <label>Email</label>
+                        <div class="fhs-input-group">
+                            @Html.EditorFor(m => m.EmailCus, new { htmlAttributes = new { @class = "fhs-textbox", placeholder = "Email", type = "text", maxlength = "30" } })
+                        </div>
+                        @Html.ValidationMessageFor(m => m.EmailCus, "", new { @class = "field-validation-error" })
+                    </div>
+
+                    <div class="fhs-input-box">
+                        <label>Địa Chỉ</label>
+                        <div class="fhs-input-group">
+                            @Html.EditorFor(m => m.Address, new { htmlAttributes = new { @class = "fhs-textbox", placeholder = "Địa Chỉ", maxlength = "100" } })
+                        </div>
+                        @Html.ValidationMessageFor(m => m.Address, "", new { @class = "field-validation-error" })
+                    </div>
+
+                    <div class="fhs-input-box">
+                        <label>Mật Khẩu</label>
+                        <div class="fhs-input-group">
+                            @Html.EditorFor(m => m.PasswordUser, new { htmlAttributes = new { @class = "fhs-textbox", placeholder = "Tối đa 16 ký tự", maxlength = "16" } })
+                            <span class="fhs-input-icon fhs-textbox-alert"></span>
+                        </div>
+                        @Html.ValidationMessageFor(m => m.PasswordUser, "", new { @class = "field-validation-error" })
+                    </div>
+
+                    <div class="fhs-input-box">
+                        <label>Xác Nhận Mật Khẩu</label>
+                        <div class="fhs-input-group">
+                            @Html.EditorFor(m => m.ConfirmPass, new { htmlAttributes = new { @class = "fhs-textbox", placeholder = "Xác nhận mật khẩu", maxlength = "16" } })
+                        </div>
+                        @Html.ValidationMessageFor(m => m.ConfirmPass, "", new { @class = "field-validation-error" })
+                    </div>
+
+                    <div class="fhs-input-box">
+                        <div class="fhs-btn-box">
+                            <button type="submit" title="Đăng ký" id="registerConfirm" class="fhs-btn-register">Đăng ký</button>
+                        </div>
+                    </div>
+
+                    <div class="fhs-register-term">
+                        Bằng việc đăng ký, bạn đã đồng ý với Fahasa.com về<br>
+                        <a href="/dieu-khoan-su-dung" target="_blank">Điều khoản dịch vụ</a>&nbsp;&amp;&nbsp;
+                        <a href="#" target="_blank">Chính sách bảo mật</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

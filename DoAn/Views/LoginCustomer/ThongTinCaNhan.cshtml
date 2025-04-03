@@ -1,0 +1,87 @@
+﻿@model DoAn.Models.Customer
+@{
+    ViewBag.Title = "ThongTinCaNhan";
+    Layout = "~/Views/Shared/master2.cshtml";
+}
+
+<link href="~/Content/Account.css" rel="stylesheet" />
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="container">
+        <div class="block_account">
+            <div class="block-title">
+                <strong><span>Tài Khoản</span></strong>
+            </div>
+            <div class="block_content">
+                <ul>
+                    <li><a href="/LoginCustomer/ThongTinCaNhan" style="text-decoration:none;">Thông Tin Cá Nhân</a></li>
+                    <li><a href="/LoginCustomer/History" style="text-decoration:none;">Lịch Sử Mua Hàng</a></li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="my_account">
+            <div class="page_title">
+                <h1 style="color:red;">Thông Tin Tài Khoản</h1>
+            </div>
+            <form>
+                <div>
+                    <div class="input-box">
+                        <label>Họ Và Tên</label>
+                        <div class="input-item">
+                            <div class="input-group">
+                                @Html.DisplayFor(model => model.NameCus)
+
+                                @*<button type="submit" title="Lưu thay đổi" value="Save" class="input-icon-change">Thay đổi</button>*@
+                            </div>
+                        </div>
+                        <div class="input-alert"></div>
+                    </div>
+
+                    <div class="input-box">
+                        <label>Số điện thoại</label>
+                        <div class="input-item">
+                            <div class="input-group">
+
+                                @Html.DisplayFor(model => model.PhoneCus)
+
+                                @*<button type="submit" title="Lưu thay đổi" value="Save" class="input-icon-change">Thay đổi</button>*@
+                            </div>
+                        </div>
+                        <div class="input-alert"></div>
+                    </div>
+                    <div class="input-box">
+                        <label>Email</label>
+                        <div class="input-item">
+                            <div class="input-group">
+
+                                @Html.DisplayFor(model => model.EmailCus)
+
+                                @*<button type="submit" title="Lưu thay đổi" value="Save" class="input-icon-change">Thay đổi</button>*@
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="input-box">
+                        <label>Địa Chỉ</label>
+                        <div class="input-item">
+                            <div class="input-group">
+
+                                @Html.DisplayFor(model => model.Address)
+
+                                @*<button type="submit" title="Lưu thay đổi" value="Save" class="input-icon-change">Thay đổi</button>*@
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+            <div style="text-align: center;padding: 20px 0 10px 0;">
+                <button type="submit" title="Lưu thay đổi" class="btn-save-confirm" id="logOut">
+                    @Html.ActionLink("Đăng Xuất", "LogOutUser", "LoginCustomer")
+                </button>
+            </div>
+        </div>
+    </div>
+}

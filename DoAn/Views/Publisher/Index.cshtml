@@ -1,0 +1,55 @@
+﻿@model IEnumerable<DoAn.Models.Publisher>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Index", "Publisher", FormMethod.Get))
+{
+    <input type="text" name="_name" />
+    <input type="submit" name="Search" />
+    <a href="/Publisher/Create" class="btn btn-default">New Publisher</a>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IDPub)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NamePub)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AddressPub)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IDPub)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NamePub)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AddressPub)
+                </td>
+
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                </td>
+            </tr>
+        }
+
+    </table>
+}
+

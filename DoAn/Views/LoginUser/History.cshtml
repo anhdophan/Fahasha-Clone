@@ -1,0 +1,87 @@
+﻿@model IEnumerable<DoAn.Models.OrderPro>
+
+@{
+    ViewBag.Title = "History";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    // Danh sách cho dropdown phương thức thanh toán
+    var paymentMethods = new List<SelectListItem>
+{
+         new SelectListItem { Text = "Tất cả", Value = "" },
+         new SelectListItem { Text = "Thanh toán COD", Value = "COD" },
+         new SelectListItem { Text = "Thanh toán qua MoMo", Value = "MoMo" }
+    };
+
+    // Danh sách cho dropdown tình trạng đơn hàng
+    var orderStatuses = new List<SelectListItem>
+{
+         new SelectListItem { Text = "Tất cả", Value = "" },
+         new SelectListItem { Text = "Đang Xác Nhận", Value = "Đang Xác Nhận" },
+         new SelectListItem { Text = "Đã Xác Nhận", Value = "Đã Xác Nhận" },
+         new SelectListItem { Text = "Yêu Cầu Hủy", Value = "Yêu Cầu Hủy" },
+         new SelectListItem { Text = "Xác Nhận Hủy", Value = "Xác Nhận Hủy" }
+    };
+
+    // Giá trị đã chọn được truyền từ controller qua ViewBag
+    string selectedPaymentMethod = ViewBag.SelectedPaymentMethod as string ?? "";
+    string selectedStatus = ViewBag.SelectedStatus as string ?? "";
+}
+
+<h2>Lịch sử đơn hàng</h2>
+
+@using (Html.BeginForm("History", "LoginUser", FormMethod.Get))
+{
+    <div class="form-group">
+        <label>Phương thức thanh toán:</label>
+        @Html.DropDownList("paymentMethod", new SelectList(paymentMethods, "Value", "Text", selectedPaymentMethod), new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Tình trạng đơn hàng:</label>
+        @Html.DropDownList("status", new SelectList(orderStatuses, "Value", "Text", selectedStatus), new { @class = "form-control" })
+    </div>
+    <button type="submit" class="btn btn-primary">Lọc</button>
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.FirstOrDefault().ID)</th>
+            <th>@Html.DisplayNameFor(model => model.FirstOrDefault().IDCus)</th>
+            <th>@Html.DisplayNameFor(model => model.FirstOrDefault().NameCus)</th>
+            <th>@Html.DisplayNameFor(model => model.FirstOrDefault().PhoneCus)</th>
+            <th>@Html.DisplayNameFor(model => model.FirstOrDefault().DateOrder)</th>
+            <th>@Html.DisplayNameFor(model => model.FirstOrDefault().AddressDeliverry)</th>
+            <th>Phương thức thanh toán</th>
+            <th>@Html.DisplayNameFor(model => model.FirstOrDefault().TinhTrang)</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.ID)</td>
+                <td>@Html.DisplayFor(modelItem => item.IDCus)</td>
+                <td>@Html.DisplayFor(modelItem => item.NameCus)</td>
+                <td>@Html.DisplayFor(modelItem => item.PhoneCus)</td>
+                <td>@Html.DisplayFor(modelItem => item.DateOrder)</td>
+                <td>@Html.DisplayFor(modelItem => item.AddressDeliverry)</td>
+                <td>
+                    @(item.Status ? "Thanh toán COD" : "Thanh toán qua MoMo")
+                </td>
+                <td>@Html.DisplayFor(modelItem => item.TinhTrang)</td>
+                <td>
+                    @Html.ActionLink("Detail", "DetailPro", new { id = item.ID }, new { @class = "btn-detail" , name = "btnDetail"})
+                    @if (item.TinhTrang == "Đang Xác Nhận")
+                    {
+                        @Html.ActionLink("Confirm", "UpdateTinhTrang", new { id = item.ID, status = "Đã Xác Nhận" }, new { @class = "btn-action btn-confirm" })
+                    }
+                    else if (item.TinhTrang == "Yêu Cầu Hủy")
+                    {
+                        @Html.ActionLink("Cancel", "UpdateTinhTrang", new { id = item.ID, status = "Xác Nhận Hủy" }, new { @class = "btn-action btn-cancel" })
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
